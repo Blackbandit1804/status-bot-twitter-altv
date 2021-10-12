@@ -6,20 +6,6 @@ addEventListener('scheduled', event => {
   )
 })
 
-addEventListener("fetch", (event) => {
-  event.respondWith(
-    handleRequest(event.request).catch(
-      (err) => new Response(err.stack, { status: 500 })
-    )
-  );
-});
-
-// Block fetch requests
-
-async function handleRequest(request) {
-    return new Response("", { status: 403 })
-};
-
 // twitter helper functions
 
 async function makenonce() {
