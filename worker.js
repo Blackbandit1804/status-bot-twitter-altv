@@ -180,13 +180,19 @@ async function handleSchedule(scheduledDate) {
 
 async function handleTweetDescription(results) {
     let state;
+    let players;
+    let maxplayers;
     if (results.active) {
         state = "online"
+        players = results.info.players;
+        maxplayers = results.info.maxPlayers;
     } else {
         state = "offline"
+        players = "0";
+        maxplayers = "0";
     }
     let description = `Server: ${state} 
-Players: ${results.info.players}/${results.info.maxPlayers} 
+Players: ${players}/${maxplayers} 
     
 #CloudflareWorkers #altv #LuckyV`
     await twitterdescription(description)
